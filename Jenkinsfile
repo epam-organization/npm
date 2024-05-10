@@ -29,11 +29,9 @@ node ('macos'){
               sh 'npm start'
             }
           }
-        } catch(Exception e){
-        currentBuild.result = 'FAILURE'
-        } finally{
-        notifyBuild(currentBuild.result)
-        cleanWs()
+        }finally{
+          notifyBuild(currentBuild.result)
+          cleanWs()
         }
     } 
 } 
