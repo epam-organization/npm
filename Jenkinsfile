@@ -12,7 +12,7 @@ properties ([
     ])
 ])
 
-node {
+node ('macos'){
     try {
         checkout()        
         npm_install (params.npmInstall)
