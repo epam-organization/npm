@@ -29,10 +29,8 @@ node ('macos'){
               sh 'npm start'
             }
           }
-        }finally{
-          notifyBuild(currentBuild.result)
-          cleanWs()
         }
+        cleanWs()
     } 
 } 
 
