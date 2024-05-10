@@ -14,14 +14,14 @@ properties ([
 
 // node ('macos'){
 pipeline {
-    agent 'macos'
+    agent macos
     //   checkout()        
     //   npm_install (params.npmInstall)
         stages {
           stage('test') {
             stages {
             //   sh 'npm test'
-              sh 'ls -ltra'
+              sh "ls -ltra"
             }
           }
         }
@@ -32,7 +32,7 @@ pipeline {
         //     }
         //   }
         // }
-        cleanWs()
+        // cleanWs()
 } 
 
 def checkout(){
