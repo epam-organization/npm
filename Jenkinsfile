@@ -13,7 +13,6 @@ properties ([
 ])
 
 node ('macos'){
-    try {
       checkout()        
       npm_install (params.npmInstall)
         stages {
@@ -31,7 +30,6 @@ node ('macos'){
           }
         }
         cleanWs()
-    } 
 } 
 
 def checkout(){
