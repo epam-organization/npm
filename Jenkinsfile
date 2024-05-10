@@ -18,7 +18,7 @@ node {
         npm_install (params.npmInstall)
         test (params.npmTest)
         start (params.npmStart)
-    } catch(Exceptio e){
+    } catch(Exception e){
         currentBuild.result = 'FAILURE'
     } finally{
         notifyBuild(currentBuild.result)
