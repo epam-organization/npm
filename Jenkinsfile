@@ -14,7 +14,7 @@ properties ([
 
 node ('macos'){
       checkout()        
-      npm_install (params.npmInstall)
+    //   npm_install (params.npmInstall)
         stages {
           stage('test') {
             stages {
