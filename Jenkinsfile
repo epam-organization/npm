@@ -14,7 +14,7 @@ properties ([
 
 // node ('macos'){
 pipeline {
-    agent macos
+    agent { label 'macos' }
     //   checkout()        
     //   npm_install (params.npmInstall)
         stages {
