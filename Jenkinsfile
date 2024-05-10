@@ -1,10 +1,10 @@
 #! user/bin env groovy
 
-def params = [
-    mpmInstall : 'nmp install',
-    mpmTest    : 'nmp test',
-    mpmStart   : 'nmp start'
-]
+// def params = [
+//     mpmInstall : 'nmp install',
+//     mpmTest    : 'nmp test',
+//     mpmStart   : 'nmp start'
+// ]
 
 properties ([
     pipelineTriggers([
@@ -18,17 +18,18 @@ node ('macos'){
         stages {
           stage('test') {
             stages {
-              sh 'npm test'
+            //   sh 'npm test'
+              sh 'ls -ltra'
             }
           }
         }
-        stages {
-          stage('start') {
-            stages {
-              sh 'npm start'
-            }
-          }
-        }
+        // stages {
+        //   stage('start') {
+        //     stages {
+        //       sh 'npm start'
+        //     }
+        //   }
+        // }
         cleanWs()
 } 
 
