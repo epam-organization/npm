@@ -14,15 +14,27 @@ properties ([
 
 node ('macos'){
     try {
-        checkout()        
-        npm_install (params.npmInstall)
-        test (params.npmTest)
-        start (params.npmStart)
-    } catch(Exception e){
+      checkout()        
+      npm_install (params.npmInstall)
+        stages {
+          stage('test') {
+            stages {
+              sh 'npm test'
+            }
+          }
+        }
+        stages {
+          stage('start') {
+            stages {
+              sh 'npm start'
+            }
+          }
+        } catch(Exception e){
         currentBuild.result = 'FAILURE'
-    } finally{
+        } finally{
         notifyBuild(currentBuild.result)
         cleanWs()
+        }
     } 
 } 
 
@@ -32,17 +44,17 @@ def checkout(){
     echo 'This step was succesfuly'
 }   
 
-def test(cmd){
-    stage('NPM test')
-    echo 'This is the second step'
-} 
+// def test(cmd){
+//     stage('NPM test')
+//     echo 'This is the second step'
+// } 
 
-def npm_install(cmd){
-    stage('NPM Install')
-    echo 'This is the first step'
-}
+// def npm_install(cmd){
+//     stage('NPM Install')
+//     echo 'This is the first step'
+// }
 
-def start(cmd){
-    stage('NPM Start')
-    echo 'This is the last step'
-}
+// def start(cmd){
+//     stage('NPM Start')
+//     echo 'This is the last step'
+// }
