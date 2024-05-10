@@ -12,8 +12,10 @@ properties ([
     ])
 ])
 
-node ('macos'){
-      checkout()        
+// node ('macos'){
+pipeline {
+    agent 'macos'
+    //   checkout()        
     //   npm_install (params.npmInstall)
         stages {
           stage('test') {
